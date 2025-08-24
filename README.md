@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Web Testing Automation – Luma Magento
 
 ## 📌 Deskripsi Project
@@ -35,3 +36,7 @@ Fokus utama adalah memastikan fitur-fitur utama pada website **Luma Magento** be
 - Berhasil membuat **automated test case** untuk skenario dasar e-commerce.
 - Mendapatkan **report otomatis** dari Katalon yang berisi status test case (pass/fail) lengkap dengan evidence screenshot.
 - Menjadi portfolio kecil untuk menunjukkan kemampuan dasar **Web Automation Testing** menggunakan Katalon.
+=======
+# Test_LUMA
+
+>>>>>>> 1a3ed58 (Intial Project)

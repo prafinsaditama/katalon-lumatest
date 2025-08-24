@@ -1,47 +1,90 @@
 package pages
 
-import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
-import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
-import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
-import com.kms.katalon.core.annotation.Keyword
-import com.kms.katalon.core.checkpoint.Checkpoint
-import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
-import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
-import com.kms.katalon.core.model.FailureHandling
-import com.kms.katalon.core.testcase.TestCase
-import com.kms.katalon.core.testdata.TestData
 import com.kms.katalon.core.testobject.TestObject
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import global.ObjectGlobalPages
-import internal.GlobalVariable
 
 public class ProductPages {
-	ObjectGlobalPages ObjectGlobal = new ObjectGlobalPages()
+    ObjectGlobalPages ObjectGlobal = new ObjectGlobalPages()
 
-	private TestObject productName
-	private TestObject sizeProduct
-	private TestObject colorProduct
-	private TestObject quantity
-	private TestObject AddtoCart
+    private TestObject productName
+    private TestObject sizeProduct
+    private TestObject colorProduct
+    private TestObject quantity
+    private TestObject addToCart
+    private TestObject menuMen
+    private TestObject menuTops
+    private TestObject menuTees
+    private TestObject successMsg   // ✅ tambahan untuk verifikasi notifikasi sukses
 
-	def  ProductPages(String name, String size, String color) {
-		productName = ObjectGlobal.getTestObject("//strong[@class='product name product-item-name']/a[contains(text(), '${name}')]")
-		sizeProduct = ObjectGlobal.getTestObject("//div[@class='swatch-option text' and text()='${size}']")
-		colorProduct = ObjectGlobal.getTestObject("//div[@class='swatch-option color' and @option-label='${color}']")
-		quantity = ObjectGlobal.getTestObject("//input[@id='qty']")
-		AddtoCart = ObjectGlobal.getTestObject("//button[span[text()='Add to Cart']]")
-	}
+    // ✅ Constructor untuk product detail
+    public ProductPages(String name, String size, String color) {
+        // Lokator menu navigasi
+        menuMen   = ObjectGlobal.getTestObject("//span[text()='Men']")
+        menuTops  = ObjectGlobal.getTestObject("//a[@id='ui-id-17']//span[text()='Tops']")
+        menuTees  = ObjectGlobal.getTestObject("//a[@id='ui-id-20']//span[text()='Tees']")
 
-	def menu() {
-		WebUI.takeFullPageScreenshot()
-		WebUI.waitForElementPresent(menuField, 5)
-		WebUI.verifyElementPresent(menuField, 5)
-		WebUI.click(menuField)
-		WebUI.delay(2)
-		WebUI.takeFullPageScreenshot()
-	}
+        // Lokator produk dan atributnya
+        productName  = ObjectGlobal.getTestObject("//a[@class='product-item-link' and normalize-space(text())='${name}']")
+        sizeProduct  = ObjectGlobal.getTestObject("//div[contains(@class,'swatch-option text') and normalize-space(text())='${size}']")
+        colorProduct = ObjectGlobal.getTestObject("//div[contains(@class,'swatch-option color') and @option-label='${color}']")
+        quantity     = ObjectGlobal.getTestObject("//input[@id='qty']")
+        addToCart    = ObjectGlobal.getTestObject("//form[@id='product_addtocart_form']//button[@type='submit']")
+
+        // ✅ Lokator notifikasi sukses
+        successMsg   = ObjectGlobal.getTestObject("//div[@role='alert']//div[contains(text(),'You added')]")
+    }
+
+    // Navigasi ke kategori Tees (Men > Tops > Tees)
+    public void goToTeesCategory() {
+        WebUI.waitForElementClickable(menuMen, 10)
+        WebUI.click(menuMen)
+
+        WebUI.waitForElementClickable(menuTops, 10)
+        WebUI.click(menuTops)
+
+        WebUI.waitForElementClickable(menuTees, 10)
+        WebUI.click(menuTees)
+
+        WebUI.delay(2)
+        WebUI.takeFullPageScreenshot()
+    }
+
+    // Action: pilih produk di halaman kategori
+    public void selectProduct() {
+        WebUI.verifyElementPresent(productName, 10)
+        WebUI.waitForElementClickable(productName, 10)
+        WebUI.click(productName)
+    }
+
+    // Action: pilih size
+    public void selectSize() {
+        WebUI.waitForElementClickable(sizeProduct, 10)
+        WebUI.click(sizeProduct)
+    }
+
+    // Action: pilih warna
+    public void selectColor() {
+        WebUI.waitForElementClickable(colorProduct, 10)
+        WebUI.click(colorProduct)
+    }
+
+    // Action: isi quantity
+    public void setQuantity(String qty) {
+        WebUI.clearText(quantity)
+        WebUI.setText(quantity, qty)
+    }
+
+    // Action: klik Add to Cart
+    public void addProductToCart() {
+        WebUI.waitForElementClickable(addToCart, 10)
+        WebUI.click(addToCart)
+    }
+
+    // ✅ Verifikasi notifikasi sukses setelah add to cart
+    public void verifyAddToCartSuccess() {
+        WebUI.verifyElementPresent(successMsg, 10)
+        WebUI.takeScreenshot()
+    }
 }

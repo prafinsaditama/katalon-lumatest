@@ -6,12 +6,12 @@
    <UUID>cb68af0f-0b42-458d-89b9-e0e6760ffc37</UUID>
    <createdEdition>FREE</createdEdition>
    <createdVersion>10.3.0</createdVersion>
-   <freeLicense>true</freeLicense>
+   <freeLicense>false</freeLicense>
    <migratedVersion>5.9.0</migratedVersion>
-   <modifiedEdition>FREE</modifiedEdition>
-   <modifiedVersion>10.3.0</modifiedVersion>
+   <modifiedEdition>ENTERPRISE</modifiedEdition>
+   <modifiedVersion>10.3.1</modifiedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
-   <projectFileLocation>C:\Users\Admin\Documents\Test_LUMA\Test_LUMA.prj</projectFileLocation>
+   <projectFileLocation>C:\Users\Prafinda Sutan A\Downloads\IDXSTI\Katalon_Automation\Test_LUMA.prj</projectFileLocation>
    <sourceContent>
       <sourceFolderList>
          <sourceFolderConfiguration>

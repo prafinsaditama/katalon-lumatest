@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>AddToCart</name>
+   <name>CheckoutE2E</name>
    <tag></tag>
    <comment></comment>
    <recordOption>OTHER</recordOption>
-   <testCaseGuid>7a39f6f1-3a6a-4551-9d85-9d4a115dbc4b</testCaseGuid>
+   <testCaseGuid>e2318405-10ce-4897-a0cc-d9613270245b</testCaseGuid>
 </TestCaseEntity>

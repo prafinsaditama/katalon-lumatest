@@ -1,3 +1,4 @@
+
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
@@ -33,13 +34,20 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable
-import pages.ConfigurationPages
+import pages.CheckoutPages
+import pages.ProductPages
 import pages.MenuPages
-//import pages.FileUploadRobot
+import pages.SubMenuPages
 
-MenuPages menuPage = new MenuPages("PIM")
-ConfigurationPages configPage = new ConfigurationPages("More", "Configuration", "Data Import")
+MenuPages menuPage = new MenuPages("Men")
+SubMenuPages submenuPage = new SubMenuPages("Jackets")
+ProductPages productPage = new ProductPages("Montana Wind Jacket", "XL", "Black")
+CheckoutPages checkoutPage = new CheckoutPages()
+
 menuPage.menu()
-configPage.dataImport()
-configPage.submit()
-\
+submenuPage.submenu()
+productPage.productAdd()
+productPage.checkOutflow()
+checkoutPage.shippingAddress("Jl.halim", "Tangcit", "115500", "083218232442")
+checkoutPage.shippingMethods()
+checkoutPage.reviewPayment()

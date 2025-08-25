@@ -16,13 +16,11 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
-import pages.RegisterPages
 
-// Inisialisasi class
 RegisterPages register = new RegisterPages()
 
 // Langkah: Isi informasi personal
-register.PersonalInfo("Cengkareng", "Raya")
+register.PersonalInfo('Cengkareng', 'Raya')
 
-// Langkah: Isi form sign in (email, password, confirm password)
-register.SignIn("ceengkarengraya@example.com", "P@ssw0rd123", "P@ssw0rd123")
+register.SignIn('ceengkarengraya@example.com', 'P@ssw0rd123', 'P@ssw0rd123')
+

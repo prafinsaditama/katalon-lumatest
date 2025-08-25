@@ -18,33 +18,21 @@ import com.kms.katalon.core.context.TestCaseContext
 
 import internal.GlobalVariable
 import pages.RegisterPages
-import pages.LogoutPages
 
-class LoginLogout {
+class Register {
 
-    @BeforeTestCase
+   @BeforeTestCase
     def beforeTestCase(TestCaseContext testCaseContext) {
-        // Optional log output
         println "Running test case: ${testCaseContext.getTestCaseId()}"
 
-        // Start browser and login
         WebUI.openBrowser('')
         WebUI.maximizeWindow()
         WebUI.navigateToUrl(GlobalVariable.URL)
 
         RegisterPages registerPage = new RegisterPages()
-        registerPage.login(GlobalVariable.Username, GlobalVariable.Password)
+
+        registerPage.PersonalInfo(GlobalVariable.FirstName, GlobalVariable.LastName)
+        registerPage.SignIn(GlobalVariable.Email, GlobalVariable.Password, GlobalVariable.ConfirmPassword)
     }
 
-    @AfterTestCase
-    def afterTestCase(TestCaseContext testCaseContext) {
-        // Optional log output
-        println "Finished test case: ${testCaseContext.getTestCaseId()} with status: ${testCaseContext.getTestCaseStatus()}"
-
-        // Perform logout and close browser
-        LogoutPages logoutPage = new LogoutPages()
-        logoutPage.logout()
-
-        WebUI.closeBrowser()
-    }
 }

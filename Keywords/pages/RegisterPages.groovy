@@ -63,5 +63,6 @@ public class RegisterPages {
 		WebUI.setText(passwordField, password)
 		WebUI.setText(confirmPassword, confirm)
 		WebUI.click(btnSubmit)
+		WebUI.delay(2)
 	}
 }

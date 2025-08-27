@@ -52,24 +52,26 @@ public class CheckoutPages {
 
 	def shippingAddress(String Address, String city, String code, String phone) {
 		WebUI.takeFullPageScreenshot()
+		WebUI.verifyElementPresent(countryList, 5)
+		WebUI.click(countryList)
+		WebUI.delay(15)
+		WebUI.verifyElementPresent(countryOption, 5)
+		WebUI.click(countryOption)
+		WebUI.sendKeys(countryOption, Keys.chord(Keys.ENTER))
+		WebUI.delay(10)
 		WebUI.waitForElementPresent(StreetAddress, 5)
 		WebUI.verifyElementPresent(StreetAddress, 5)
 		WebUI.setText(StreetAddress, Address)
-		WebUI.delay(2)
+		WebUI.delay(5)
 		WebUI.verifyElementPresent(cityField, 5)
 		WebUI.setText(cityField, city)
-		WebUI.delay(2)
-		WebUI.verifyElementPresent(countryList, 5)
-		WebUI.click(countryList)
-		WebUI.verifyElementPresent(countryOption, 5)
-		WebUI.click(countryOption)
-		WebUI.delay(2)
+		WebUI.delay(5)
 		WebUI.verifyElementPresent(postCode, 5)
 		WebUI.setText(postCode, code)
-		WebUI.delay(2)
+		WebUI.delay(5)
 		WebUI.verifyElementPresent(phoneField, 5)
 		WebUI.setText(phoneField, Address)
-		WebUI.delay(2)
+		WebUI.delay(5)
 		WebUI.takeScreenshot()
 	}
 
@@ -77,9 +79,10 @@ public class CheckoutPages {
 	def shippingMethods() {
 		WebUI.verifyElementPresent(radioTableRate, 5)
 		WebUI.click(radioTableRate)
+		WebUI.delay(10)
 		WebUI.verifyElementPresent(btnNext, 5)
 		WebUI.click(btnNext)
-		WebUI.delay(2)
+		WebUI.delay(10)
 	}
 
 	def reviewPayment() {

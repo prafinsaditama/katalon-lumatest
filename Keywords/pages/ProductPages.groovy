@@ -52,7 +52,7 @@ public class ProductPages {
 		WebUI.click(colorProduct)
 		WebUI.verifyElementPresent(AddtoCart, 5)
 		WebUI.click(AddtoCart)
-		WebUI.delay(2)
+		WebUI.delay(10)
 		WebUI.takeFullPageScreenshot()
 	}
 
@@ -64,7 +64,7 @@ public class ProductPages {
 		WebUI.delay(2)
 		WebUI.verifyElementPresent(proceedCheckout, 5)
 		WebUI.click(proceedCheckout)
-		WebUI.delay(2)
+		WebUI.delay(10)
 		WebUI.takeScreenshot()
 	}
 }

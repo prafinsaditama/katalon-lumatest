@@ -20,14 +20,14 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'Abang1'</initValue>
+      <initValue>'Abang9'</initValue>
       <name>LastName</name>
       <protected>false</protected>
       <valueType>STRING</valueType>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'tanahAbang1@gmail.com'</initValue>
+      <initValue>'tanahAbang9@gmail.com'</initValue>
       <name>Email</name>
       <protected>false</protected>
       <valueType>STRING</valueType>
